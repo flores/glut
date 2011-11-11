@@ -1,0 +1,19 @@
+{
+  "author": "flores <github@petalphile.com>",
+  "name": "Glut",
+  "description": "Converts Glutaraldehyde sources to Carbon supplements for the DIY gardener",
+  "version": "0.1.0",
+  "main": "build/glut.js",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "batman": "~>0.1.0"
+  },
+  "devDependencies": {},
+  "batman": {
+    "appName": "Glut",
+    "build": true,
+    "buildDir": "./build"
+  }
+}
