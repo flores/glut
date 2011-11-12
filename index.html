@@ -77,18 +77,20 @@
 
 <body>
   <h2>wet's glutaraldehyde calculator</h2>
-  <h4>make a recommended 1.6% glut. solution with Cidex, Metricide, or various Glutaraldehyde sources</h4>
+  <h4>make a recommended 1.5% glut. solution with Cidex, Metricide, or various Glutaraldehyde sources</h4>
   <div id="user">
     <h4 data-mixin="animation" data-hideif="calculate.solvent">Please choose a Glutaraldehyde source and enter your DIY mix container volume</h4>
     <div data-yield="main"></div>
       <select data-bind="calculate.source" onclick="_gaq.push(['_trackPageview', '/glut_source']);">
         <option selected="selected" value=''></option>
+        <option value=2.5>Metricide 28 (2.5%)</option>
         <option value=2.6>Metricide 14 (2.6%)</option>
         <option value=3.4>Cidex Plus (3.4%)</option>
-        <option value=10>5% Glutaraldehyde</option>
+        <option value=5>5% Glutaraldehyde</option>
         <option value=10>10% Glutaraldehyde</option>
         <option value=15>15% Glutaraldehyde</option>
         <option value=25>25% Glutaraldehyde</option>
+        <option value=45>45% Glutaraldehyde</option>
         <option value=50>50% Glutaraldehyde</option>
       </select>
       <label>dosing container volume in mL</label>
