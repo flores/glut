@@ -7,10 +7,9 @@
   <script src="/batman/es5-shim.js" type="text/javascript"></script>
   <script src="/batman/dist/batman.js" type="text/javascript"></script>
   <script src="glut.js" type="text/javascript"></script>
-  <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
   <link href='http://rota.la/bootstrap/css/bootstrap.css' rel='stylesheet' type='text/css' />
-  <meta content='mRmJs36lfQgLiQL09slVLG65uD4PFIMTcxUXog8q1r4' name='google-site-verification' />
-
+  <script src='http://rota.la/bootstrap/js/bootstrap.min.js' type='text/javascript'></script>
 
   <style>
   * {
@@ -79,84 +78,85 @@
 </head>
 
 <body>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <a class="brand" href="/">rota.la</a>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li class="">
-              <a href="http://rota.la/ei/">the accumulation of fertilizers vs time and plant uptake</a>
-            </li>
-            <li>
-              <a href="http://rota.la/">nutrient calc</a>
-            </li>
-            <li class="">
-              <a href="http://dropcheck.petalphile.com">drop checkers</a>
-            </li>
-            <li class="active">
-              <a href="http://glut.rota.la">glutaladehyde converter</a>
-            </li>
-            <li class="">
-              <a href="http://y.petalphile.com">wiki</a>
-            </li>
-            <li class="">
-              <a href="http://petalphile.com">about</a>
-            </li>
-            <li class="">
-              <a href="http://contact.petalphile.com">contact</a>
-            </li>
-          </ul>
-        </div>
+  <div class="container-fluid">
+    <div class="navbar navbar-default" role="navigation">
+      <a class="navbar-brand" href="http://rota.la">rota.la</a>
+      <div class="nav-collapse navbar-collapse collapse" id="nav">
+        <ul class="nav navbar-nav">
+          <li class="">
+            <a href="http://rota.la/ei/">the accumulation of fertilizers vs time and plant uptake</a>
+          </li>
+          <li>
+            <a href="http://rota.la/">nutrient calc</a>
+          </li>
+          <li class="">
+            <a href="http://dropcheck.petalphile.com">drop checkers</a>
+          </li>
+          <li class="active">
+            <a href="http://glut.rota.la">glutaladehyde converter</a>
+          </li>
+          <li class="">
+            <a href="http://y.petalphile.com">wiki</a>
+          </li>
+          <li class="">
+            <a href="http://petalphile.com">about</a>
+          </li>
+          <li class="">
+            <a href="http://contact.petalphile.com">contact</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
 
   <div class="container-fluid">
-    <h3>wet's glutaraldehyde calculator</h3>
-    <p class="muted">make a recommended 1.5% glut. solution with Cidex, Metricide, or various Glutaraldehyde sources</p>
-
-    <div id="user">
-      <h4 data-mixin="animation" data-hideif="calculate.solvent">Please choose a Glutaraldehyde source and enter your DIY mix container volume</h4>
-      <div data-yield="main"></div>
-        <select data-bind="calculate.source">
-          <option selected="selected" value=''></option>
-          <option value=2.5>Metricide 28 (2.5%)</option>
-          <option value=2.6>Metricide 14 (2.6%)</option>
-          <option value=3.4>Cidex Plus (3.4%)</option>
-          <option value=5>5% Glutaraldehyde</option>
-          <option value=10>10% Glutaraldehyde</option>
-          <option value=15>15% Glutaraldehyde</option>
-          <option value=25>25% Glutaraldehyde</option>
-          <option value=45>45% Glutaraldehyde</option>
-          <option value=50>50% Glutaraldehyde</option>
-        </select>
-        <label>dosing container volume in mL</label>
-        <input type="int" data-bind="calculate.dilution_volume">
+    <div class="row">
+      <div id="user" class="col-md-4 text-center">
+        <h3>wet's glutaraldehyde calculator</h3>
+        <p class="muted">make a recommended 1.5% glut. solution with Cidex, Metricide, or various Glutaraldehyde sources</p>
+        <h4 data-mixin="animation" data-hideif="calculate.solvent">Please choose a Glutaraldehyde source and enter your DIY mix container volume</h4>
+        <div data-yield="main" class="col-md-6">
+          <select data-bind="calculate.source">
+            <option selected="selected" value=''></option>
+            <option value=2.5>Metricide 28 (2.5%)</option>
+            <option value=2.6>Metricide 14 (2.6%)</option>
+            <option value=3.4>Cidex Plus (3.4%)</option>
+            <option value=5>5% Glutaraldehyde</option>
+            <option value=10>10% Glutaraldehyde</option>
+            <option value=15>15% Glutaraldehyde</option>
+            <option value=25>25% Glutaraldehyde</option>
+            <option value=45>45% Glutaraldehyde</option>
+            <option value=50>50% Glutaraldehyde</option>
+          </select>
+          <label>dosing container volume in mL</label>
+          <input type="int" data-bind="calculate.dilution_volume">
+        </div>
       </div>
-    </div>
 
 
-    <div data-mixin="animation" data-showif="calculate.solvent" id="results">
-      <h5>Results</h5>
-      <ol>
-       <li>Add <span class="instruct"><span data-bind="calculate.solute"></span>mL of <span data-bind="calculate.source"></span>% Glutaraldehyde</span> to the  <span data-bind="calculate.dilution_volume"></span>mL container.</li>
-       <li>Use <span class="instruct"><span data-bind="calculate.solvent" id="instruct"></span>mL RO/DI water</span> to fill the rest of the container</li>
-       <li>Dose it!</li>
-      </ol>
-      <center>
-        <a id="showtips" onclick="showDiv('tips');">tips</a>
-      </center>
+      <div class="col-md-4 text-center">
+        <div data-mixin="animation" data-showif="calculate.solvent" id="results" class="col-md-6">
+          <h5>Results</h5>
+          <ol>
+            <li>Add <span class="instruct"><span data-bind="calculate.solute"></span>mL of <span data-bind="calculate.source"></span>% Glutaraldehyde</span> to the  <span data-bind="calculate.dilution_volume"></span>mL container.</li>
+            <li>Use <span class="instruct"><span data-bind="calculate.solvent" id="instruct"></span>mL RO/DI water</span> to fill the rest of the container</li>
+            <li>Dose it!</li>
+          </ol>
+          <a id="showtips" onclick="showDiv('tips');">tips</a>
 
 
-      <div id="tips" style="display: none">
-        <ul>
-          <li>Common dosing is 1mL/10gal of this solution daily or every other day.</li>
-          <li>Dose 5mL/10gal after water changes.</li>
-          <li>Many folks double or triple the daily dose as an algaecide.</li>
-          <li>Certain plants, such as Anacharis or Vallisneria sp., generally don't like glut.</li>
-          <li>Don't add any "Activator" or "Plus" bottle that may have come with your Glutaraldehyde source.</li>
-          <li>Glutaraldehyde is dangerous!  Be careful, don't drink it, don't breathe it in, wash any skin contact, etc, etc.</li>
-          <li>This calculator has no warranty but is <a href="https://github.com/flores/glut">open source</a>.</li>
-        </ul>
+          <div id="tips" style="display: none">
+            <ul>
+              <li>Common dosing is 1mL/10gal of this solution daily or every other day.</li>
+              <li>Dose 5mL/10gal after water changes.</li>
+              <li>Many folks double or triple the daily dose as an algaecide.</li>
+              <li>Certain plants, such as Anacharis or Vallisneria sp., generally don't like glut.</li>
+              <li>Don't add any "Activator" or "Plus" bottle that may have come with your Glutaraldehyde source.</li>
+              <li>Glutaraldehyde is dangerous!  Be careful, don't drink it, don't breathe it in, wash any skin contact, etc, etc.</li>
+              <li>This calculator has no warranty but is <a href="https://github.com/flores/glut">open source</a>.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
     <script type="text/javascript">
@@ -170,10 +170,12 @@
   	} else {
   		document.getElementById(method).style.display = "none";
   	}
-  };
+      };
     </script>
+
+
   </div>
 
-  </body>
+</body>
 
 </html>
